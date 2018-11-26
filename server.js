@@ -1,6 +1,6 @@
 const express = require('express');
-const hbs = require('hbs');
-const fs = require('fs');
+const hbs = require('hbs'); // handelbars
+const fs = require('fs'); // file system
 const port = process.env.PORT || 3000; // In order to deploy to heroku
 
 var app = express(); // Make a new express app
@@ -55,6 +55,12 @@ app.get('/bad', (req, res) => {
   res.send({
     error: 'You tried to access the /bad path',
     errorMessage: 'Unable to fulfill the request'
+  });
+});
+
+app.get('/portafolio', (req, res) => {
+  res.render('portafolio.hbs', {
+    pageTitle: 'Portafolio Page'
   });
 });
 
